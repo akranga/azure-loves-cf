@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+ #!/usr/bin/env python
 import os
 import re
 import json
@@ -39,10 +39,14 @@ if os.path.exists(bosh_template):
     for k in ["RESOURCE-GROUP-NAME", 
               "STORAGE-ACCESS-KEY", 
               "STORAGE-ACCOUNT-NAME", 
-              "SUBNET-NAME", 
+              "SUBNET- NAME", 
               "SUBNET-NAME-FOR-CF", 
               "SUBSCRIPTION-ID", 
-              "VNET-NAME"]:
+              "VNET-NAME",
+              "TENANT-ID",
+              "CLIENT-ID",
+              "CLIENT-SECRET",
+              "DOMAIN-NAME"]:
         v = settings[k]
         contents = re.compile(re.escape(k)).sub(v, contents)
     contents = re.compile(re.escape("SSH-CERTIFICATE")).sub(ssh_cert, contents)
